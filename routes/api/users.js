@@ -1,10 +1,41 @@
 var express = require('express');
 var router = express.Router();
 
+var rek = require("rekuire"),
+    DB= rek("database"),
+    auth = rek("auth");
+
+
+
+
 /* GET users listing. */
 router.get('/users', function(req, res, next) {
-  var test = process.env.name;
-  res.send(test);
+  var User = DB.model("User");
+  User.find({}).exec().then(function(data){
+    res.json(data);
+  })
+});
+
+router.post("/login", auth.authenticate, function(req,res){ res.send("middleware failed")});
+
+router.get('/setup', function(req,res){
+  // create a sample user
+  var User = DB.model("User");
+  var nick = new User({
+    name: 'Nick',
+    password: 'password',
+    admin: true
+
+  });
+
+// save the sample user
+nick.save(function(err) {
+  if (err) throw err;
+
+  console.log('User saved successfully');
+  res.json({ success: true });
+});
+
 });
 
 module.exports = router;

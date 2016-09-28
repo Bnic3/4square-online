@@ -10,7 +10,11 @@ var rekuire = require("rekuire"),
 
 //create schema
 var UserSchema = new Schema({
-    firstname: {
+    name: String,
+    password: String,
+    admin: Boolean
+
+    /*firstname: {
         type: String,
         required: true
     },
@@ -42,10 +46,12 @@ var UserSchema = new Schema({
     lastlogin: { type: Date, default: Date.now },
     username: { type: String, required: true, index: { unique: true } },
     passwdhash: String,
-    salt: { type: String, required: true, default: uuid.v1 }
+    salt: { type: String, required: true, default: uuid.v1 }*/
+
+
 });
 
-var hash = function(passwd, salt) {
+/*var hash = function(passwd, salt) {
     return crypto.createHmac('sha256', salt).update(passwd).digest('hex');
 };
 
@@ -56,8 +62,7 @@ UserSchema.methods.isValidPassword = function(passwordString) {
     var w = hash(passwordString, this.salt);
     //return w;
     return this.passwdhash === hash(passwordString, this.salt);
-};
-
+};*/
 
 
 module.exports = mongoose.model('User', UserSchema);
