@@ -18,6 +18,11 @@ router.get('/users', function(req, res, next) {
 
 router.post("/login", auth.authenticate, function(req,res){ res.send("middleware failed")});
 
+router.get("/protected", auth.authorization, function(req,res){
+  res.send(req.decoded._doc)
+
+})
+
 router.get('/setup', function(req,res){
   // create a sample user
   var User = DB.model("User");
