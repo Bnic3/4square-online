@@ -12,17 +12,20 @@ var rekuire = require("rekuire"),
 var UserSchema = new Schema({
    firstname: {
         type: String,
-        required: true
-    },
+        required: true,
+       lowerCase:true
+   },
     lastname: {
         type: String,
-        required:true
+        required:true,
+        lowerCase:true
     },
     email: {
         type: String,
         required: true,
         unique: true,
         trim: true,
+        lowerCase:true,
         match: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
     },
     phoneNo: {
@@ -41,7 +44,7 @@ var UserSchema = new Schema({
     group: [String],
     role:[String],
     lastlogin: { type: Date, default: Date.now },
-    username: { type: String, required: true, index: { unique: true } },
+    username: { type: String, required: true, index: { unique: true }, lowerCase:true },
     passwdhash: String,
     salt: { type: String, required: true, default: uuid.v1 }
 

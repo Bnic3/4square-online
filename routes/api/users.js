@@ -20,7 +20,7 @@ router.get('/users', function(req, res, next) {
 //signup
 router.post('/signup', userCtrl.signup);
 
-router.post("/login", auth.authenticate, function(req,res){ res.send("middleware failed")});
+router.post("/login", auth.authenticate);
 
 router.get("/protected", auth.authorization, function(req,res){
   res.send(req.decoded._doc)
