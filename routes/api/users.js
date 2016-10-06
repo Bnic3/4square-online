@@ -3,7 +3,8 @@ var router = express.Router();
 
 var rek = require("rekuire"),
     DB= rek("database"),
-    auth = rek("auth");
+    auth = rek("auth"),
+    userCtrl = rek("userctrl");
 
 
 
@@ -15,6 +16,9 @@ router.get('/users', function(req, res, next) {
     res.json(data);
   })
 });
+
+//signup
+router.post('/signup', userCtrl.signup);
 
 router.post("/login", auth.authenticate, function(req,res){ res.send("middleware failed")});
 
@@ -42,5 +46,6 @@ nick.save(function(err) {
 });
 
 });
+
 
 module.exports = router;
