@@ -51,5 +51,7 @@ nick.save(function(err) {
 
 });
 
+router.delete('/user/:username',userCtrl.deleteUser);
+
 
 module.exports = router;
