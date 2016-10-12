@@ -22,36 +22,18 @@ router.get('/users', function(req, res, next) {
 //signup
 router.post('/signup', userCtrl.signup);
 
-router.post('/user/editpass/:id', userCtrl.editPassword);
+router
+    .route("/user/:id")
+    .get(userCtrl.getUser)
+    .post(userCtrl.editUser)
+    .put(userCtrl.editPassword)
+    .delete(userCtrl.deleteUser);
 
+
+
+/*
 router.post("/login", auth.authenticate);
-
-router.get("/protected", auth.authorization, function(req,res){
-  res.send(req.decoded._doc)
-
-})
-
-router.get('/setup', function(req,res){
-  // create a sample user
-  var User = DB.model("User");
-  var nick = new User({
-    name: 'Nick',
-    password: 'password',
-    admin: true
-
-  });
-
-// save the sample user
-nick.save(function(err) {
-  if (err) throw err;
-
-  console.log('User saved successfully');
-  res.json({ success: true });
-});
-
-});
-
-router.delete('/user/:username',userCtrl.deleteUser);
+*/
 
 
 module.exports = router;
