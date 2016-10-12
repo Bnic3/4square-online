@@ -11,6 +11,9 @@ var rek = require("rekuire"),
 
 
 
+
+
+
 /* GET users listing. */
 router.get('/users', function(req, res, next) {
   //var User = DB.model("User");
@@ -29,7 +32,25 @@ router
     .put(userCtrl.editPassword)
     .delete(userCtrl.deleteUser);
 
+router.get('/sendmail', ()=>{
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+});
 
 /*
 router.post("/login", auth.authenticate);
