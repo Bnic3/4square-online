@@ -22,6 +22,8 @@ router.get('/users', function(req, res, next) {
 //signup
 router.post('/signup', userCtrl.signup);
 
+router.post('/user/editpass/:id', userCtrl.editPassword);
+
 router.post("/login", auth.authenticate);
 
 router.get("/protected", auth.authorization, function(req,res){
