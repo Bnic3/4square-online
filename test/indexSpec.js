@@ -2,7 +2,7 @@
  * Created by john.nana on 9/29/2016.
  */
 
-var assert = require("assert");
+/*var assert = require("assert");
 
 describe("test a function", function(){
      describe("a scenario", function(){
@@ -12,4 +12,4 @@ describe("test a function", function(){
      })
 
 
-});
+});*/

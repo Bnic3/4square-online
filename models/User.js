@@ -31,7 +31,6 @@ var UserSchema = new Schema({
     phoneNo: {
         type: Number,
         required: true,
-        unique: true,
         trim: true
     },
     address: {
@@ -44,7 +43,7 @@ var UserSchema = new Schema({
     group: [String],
     role:[String],
     lastlogin: { type: Date, default: Date.now },
-    username: { type: String, required: true, index: { unique: true }, lowerCase:true },
+    username: { type: String,  index: { unique: true }, lowerCase:true },
     passwdhash: String,
     salt: { type: String, required: true, default: uuid.v1 }
 
