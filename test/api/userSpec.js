@@ -20,8 +20,6 @@ describe("User login test", ()=>{
         connectDB("mongodb://localhost/4square").then(()=>{ console.log("asyncworked")})
  });//end before
 
-   it('test database', ()=>{
-
-   });//end it
-
+   it("it should sign user up")
+   it('')
 });
