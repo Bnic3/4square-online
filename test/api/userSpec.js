@@ -10,12 +10,9 @@ const expect = require('chai').expect,
    agent = request.agent(app),
     User = rek("User");
 
-
 Promise.promisifyAll(mongoose);
 
 const connectDB = Promise.promisify(mongoose.connect, mongoose);
-
-
 
 describe("User login test", ()=>{
 
@@ -27,19 +24,17 @@ describe("User login test", ()=>{
         "firstname": "John",
         "lastname": "Nana",
         "email": "bnicemagnolia@gmail.com",
-        "phoneNo": 8039704763,
-        "address": "37,akinola,Bariga, Lagos",
+        "phoneNo": "096735353",
+        "address": "marryland, lagos",
         "gender": "Male",
-        "role":"member"
+        "password":"member"
     };
-   it("it should allow user sign up if validated", ()=>{
+   it("it should allow user sign up if validated", (done)=>{
        agent.post('/signup')
        .send(user)
        .expect(200)
-       .end((err, results)=>{
-               if(err) console.log(err);
-               results.body.to.have.property('token');
-           })
+       .expect((res)=> expect(res.body).to.have.property("token"))
+       .end(done)
 
 
 
