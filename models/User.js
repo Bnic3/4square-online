@@ -29,7 +29,7 @@ var UserSchema = new Schema({
         match: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
     },
     phoneNo: {
-        type: Number,
+        type: String,
         required: true,
         trim: true
     },
@@ -43,18 +43,18 @@ var UserSchema = new Schema({
     group: [String],
     role:[String],
     lastlogin: { type: Date, default: Date.now },
-    username: { type: String,  index: { unique: true }, lowerCase:true },
+    username: { type: String, lowerCase:true },
     passwdhash: String,
     salt: { type: String, required: true, default: uuid.v1 }
 
 
 });
 
-UserSchema.pre('save', (next)=>{
-    /*this.username= this.firstname+"."+this.lastname;*/
+/*UserSchema.pre('save', (next)=>{
+    /!*this.username= this.firstname+"."+this.lastname;*!/
     console.log("pre hook here");
     next();
-});
+});*/
 
 var hash = function(passwd, salt) {
     return crypto.createHmac('sha256', salt).update(passwd).digest('hex');

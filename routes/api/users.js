@@ -24,6 +24,8 @@ router.get('/users', function(req, res, next) {
 
 //signup
 router.post('/signup', userCtrl.signup);
+router.post('/forgot', userCtrl.forgotPassword);
+router.get('/reset/:token',userCtrl.resetPassword);
 
 router
     .route("/user/:id")
@@ -38,23 +40,9 @@ router.get('/sendmail', ()=>{
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 });
 
-/*
 router.post("/login", auth.authenticate);
-*/
 
 
 module.exports = router;
