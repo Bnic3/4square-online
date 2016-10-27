@@ -1,5 +1,11 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  div.login-container
+    div.login-header.login-caret
+      div.login-content
+        a.logo(href='#')
+          img(src='/images/logo_login.png', alt='', width="200px")
+        p.description
+        // progress bar indicator
+    div(ui-view)
