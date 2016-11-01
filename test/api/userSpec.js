@@ -14,7 +14,7 @@ Promise.promisifyAll(mongoose);
 
 const connectDB = Promise.promisify(mongoose.connect, mongoose);
 
-describe("User feature test ", function()=>{
+describe("User feature test ", function(){
 
     before(()=>{
        /* connectDB("mongodb://localhost/4square").then(()=>{ console.log("asyncworked")})*/
