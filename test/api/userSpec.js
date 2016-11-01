@@ -16,7 +16,7 @@ const connectDB = Promise.promisify(mongoose.connect, mongoose);
 
 describe("User feature test ", function(){
 
-    before(()=>{
+    before(function(){
        /* connectDB("mongodb://localhost/4square").then(()=>{ console.log("asyncworked")})*/
  });//end before
 
@@ -40,7 +40,7 @@ describe("User feature test ", function(){
 
    });
 
-   afterEach((done)=>{
+   afterEach(function(done){
        User.remove().exec();
        done();
 
