@@ -29,11 +29,11 @@ describe("User feature test ", function(){
         "gender": "Male",
         "password":"member"
     };
-   it("it should allow user sign up if validated", (done)=>{
+   it("it should allow user sign up if validated", function(done){
        agent.post('/signup')
        .send(user)
        .expect(200)
-       .expect((res)=> expect(res.body).to.have.property("token"))
+       .expect(function(res){expect(res.body).to.have.property("token")})
        .end(done)
 
 
