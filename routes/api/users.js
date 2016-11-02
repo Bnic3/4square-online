@@ -22,6 +22,8 @@ router.get('/users', function(req, res, next) {
   })
 });
 
+
+
 //signup
 router.post('/signup', userCtrl.signup);
 router.post('/forgot', userCtrl.forgotPassword);
@@ -35,10 +37,6 @@ router
     .delete(userCtrl.deleteUser);
 
 router.get('/sendmail', ()=>{
-
-
-
-
 
 });
 
